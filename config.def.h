@@ -72,6 +72,7 @@ static const char *brupcmd[] = { "sh", "-c", "brightnessctl set 10%+; kill -n 34
 static const char *brdowncmd[] = { "sh", "-c", "brightnessctl set 10%-; kill -n 34 $(pidof dwmstatus)", NULL };
 static const char *voldowncmd[] = { "sh", "-c", "pulsemixer --change-volume -10; kill -n 35 $(pidof dwmstatus)", NULL };
 static const char *volupcmd[] = { "sh", "-c", "pulsemixer --change-volume +10; kill -n 35 $(pidof dwmstatus)", NULL };
+static const char *micmutecmd[] = { "sh", "-c", "pulsemixer --id 1 --toggle-mute; kill -n 36 $(pidof dwmstatus)", NULL };
 //static const char *brdowncmd[] = { "brightnessctl", "set", "10%-", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -83,6 +84,7 @@ static Key keys[] = {
     { 0, XF86XK_MonBrightnessDown, spawn,          {.v = brdowncmd} },
 	{ 0, XF86XK_AudioLowerVolume,  spawn,          {.v = voldowncmd} },
 	{ 0, XF86XK_AudioRaiseVolume,  spawn,          {.v = volupcmd} },
+	{ 0, XF86XK_AudioMute,  spawn,          {.v = micmutecmd} },
 	{ MODKEY,                       XK_Up,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_Down,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = +1 } },
