@@ -67,24 +67,25 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "xfce4-terminal", "--hide-menubar", "--hide-borders", "--hide-scrollbar", "--color-bg=#171717", NULL };
 static const char *browsercmd[]  = { "firefox", NULL};
 /* Brightness control */
-//static const char *brupcmd[] = { "brightnessctl", "set", "10%+",";", "kill", "-n", "34","\"$(pidof dwmstatus)\"", NULL };
-static const char *brupcmd[] = { "sh", "-c", "brightnessctl set 10%+; kill -n 34 $(pidof dwmstatus)", NULL };
-static const char *brdowncmd[] = { "sh", "-c", "brightnessctl set 10%-; kill -n 34 $(pidof dwmstatus)", NULL };
-static const char *voldowncmd[] = { "sh", "-c", "pulsemixer --change-volume -10; kill -n 35 $(pidof dwmstatus)", NULL };
-static const char *volupcmd[] = { "sh", "-c", "pulsemixer --change-volume +10; kill -n 35 $(pidof dwmstatus)", NULL };
-static const char *micmutecmd[] = { "sh", "-c", "pulsemixer --id 1 --toggle-mute; kill -n 36 $(pidof dwmstatus)", NULL };
+//static const char *brupcmd[] = { "sh", "-c", "brightnessctl set 10%+; kill -n 34 $(pidof dwmstatus)", NULL };
+//static const char *brdowncmd[] = { "sh", "-c", "brightnessctl set 10%-; kill -n 34 $(pidof dwmstatus)", NULL };
+//static const char *voldowncmd[] = { "sh", "-c", "pulsemixer --change-volume -10; kill -n 35 $(pidof dwmstatus)", NULL };
+//static const char *volupcmd[] = { "sh", "-c", "pulsemixer --change-volume +10; kill -n 35 $(pidof dwmstatus)", NULL };
+//static const char *micmutecmd[] = { "sh", "-c", "pulsemixer --id 1 --toggle-mute; kill -n 36 $(pidof dwmstatus)", NULL };
+static const char *togglestatuscmd[] = { "pkill", "-USR2", "dwmstatus", NULL };
 //static const char *brdowncmd[] = { "brightnessctl", "set", "10%-", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = togglestatuscmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_q,      spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_w,	   spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ 0, XF86XK_MonBrightnessUp,  spawn,          {.v = brupcmd} },
-    { 0, XF86XK_MonBrightnessDown, spawn,          {.v = brdowncmd} },
-	{ 0, XF86XK_AudioLowerVolume,  spawn,          {.v = voldowncmd} },
-	{ 0, XF86XK_AudioRaiseVolume,  spawn,          {.v = volupcmd} },
-	{ 0, XF86XK_AudioMute,  spawn,          {.v = micmutecmd} },
+	//{ 0, XF86XK_MonBrightnessUp,  spawn,          {.v = brupcmd} },
+    	//{ 0, XF86XK_MonBrightnessDown, spawn,          {.v = brdowncmd} },
+	//{ 0, XF86XK_AudioLowerVolume,  spawn,          {.v = voldowncmd} },
+	//{ 0, XF86XK_AudioRaiseVolume,  spawn,          {.v = volupcmd} },
+	//{ 0, XF86XK_AudioMute,  spawn,          {.v = micmutecmd} },
 	{ MODKEY,                       XK_Up,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_Down,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = +1 } },
