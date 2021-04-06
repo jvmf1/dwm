@@ -73,7 +73,6 @@ static const char *browsercmd[]  = { "firefox", NULL};
 //static const char *volupcmd[] = { "sh", "-c", "pulsemixer --change-volume +10; kill -n 35 $(pidof dwmstatus)", NULL };
 //static const char *micmutecmd[] = { "sh", "-c", "pulsemixer --id 1 --toggle-mute; kill -n 36 $(pidof dwmstatus)", NULL };
 static const char *togglestatuscmd[] = { "pkill", "-USR2", "dwmstatus", NULL };
-//static const char *brdowncmd[] = { "brightnessctl", "set", "10%-", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = togglestatuscmd } },
