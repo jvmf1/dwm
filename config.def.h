@@ -1,4 +1,5 @@
 #include <X11/XF86keysym.h>
+#define FONT "Hack"
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
@@ -6,10 +7,8 @@ static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Hack:size=14:style=Bold" };
-//static const char *fonts[]          = { "fontawesome-regular:size=16:style=bold" };
-//static const char dmenufont[]       = "fontawesome-regular:size=16:style=bold";
-static const char dmenufont[]       = "Hack:size=14:style=Bold";
+static const char *fonts[]          = { FONT":size=14:style=Bold" };
+static const char dmenufont[]       = FONT":size=14:style=Bold";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -64,8 +63,8 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_dark, NULL };
-static const char *termcmd[]  = { "xfce4-terminal", "--hide-menubar", "--hide-borders", "--hide-scrollbar", "--color-bg=#171717", NULL };
-//static const char *termcmd[]  = { "st", "-f", "Hack:size=12", NULL };
+static const char *termcmd[]  = { "xfce4-terminal", "--hide-menubar", "--hide-borders", "--hide-scrollbar", "--color-bg=#171717", "--font="FONT":size=12", NULL };
+//static const char *termcmd[]  = { "st", "-f", FONT":size=12", NULL };
 static const char *browsercmd[]  = { "firefox", NULL};
 /* Brightness control */
 //static const char *brupcmd[] = { "sh", "-c", "brightnessctl set 10%+; kill -n 34 $(pidof dwmstatus)", NULL };
