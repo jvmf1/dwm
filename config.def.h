@@ -65,6 +65,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_dark, NULL };
 static const char *termcmd[]  = { "xfce4-terminal", "--hide-menubar", "--hide-borders", "--hide-scrollbar", "--color-bg=#171717", NULL };
+//static const char *termcmd[]  = { "st", "-f", "Hack:size=12", NULL };
 static const char *browsercmd[]  = { "firefox", NULL};
 /* Brightness control */
 //static const char *brupcmd[] = { "sh", "-c", "brightnessctl set 10%+; kill -n 34 $(pidof dwmstatus)", NULL };
