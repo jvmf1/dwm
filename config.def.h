@@ -75,7 +75,7 @@ static const char *browsercmd[]  = { "firefox", NULL};
 static const char *togglestatuscmd[] = { "pkill", "-USR2", "dwmstatus", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = togglestatuscmd } },
+	{ MODKEY,             XK_s,      spawn,          {.v = togglestatuscmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_q,      spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_w,	   spawn,          {.v = browsercmd } },
