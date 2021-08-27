@@ -1,5 +1,6 @@
 #include <X11/XF86keysym.h>
 #define FONT "Hack"
+#define STATUSMANAGER "cppstatus"
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
@@ -67,11 +68,13 @@ static const char *termcmd[]  = { "xfce4-terminal", "--hide-menubar", "--hide-bo
 //static const char *termcmd[]  = { "st", "-f", FONT":size=12", NULL };
 static const char *browsercmd[]  = { "firefox", NULL};
 /* Brightness control */
-//static const char *brupcmd[] = { "sh", "-c", "brightnessctl set 10%+; kill -n 34 $(pidof dwmstatus)", NULL };
-//static const char *brdowncmd[] = { "sh", "-c", "brightnessctl set 10%-; kill -n 34 $(pidof dwmstatus)", NULL };
-//static const char *voldowncmd[] = { "sh", "-c", "pulsemixer --change-volume -10; kill -n 35 $(pidof dwmstatus)", NULL };
-//static const char *volupcmd[] = { "sh", "-c", "pulsemixer --change-volume +10; kill -n 35 $(pidof dwmstatus)", NULL };
-//static const char *micmutecmd[] = { "sh", "-c", "pulsemixer --id 1 --toggle-mute; kill -n 36 $(pidof dwmstatus)", NULL };
+//static const char *brupcmd[] = { "sh", "-c", "brightnessctl set 10%+; pkill -34 "STATUSMANAGER, NULL };
+//static const char *brdowncmd[] = { "sh", "-c", "brightnessctl set 10%-; pkill -34 "STATUSMANAGER, NULL };
+//static const char *voldowncmd[] = { "sh", "-c", "pulsemixer --change-volume -10; pkill -35 "STATUSMANAGER, NULL };
+//static const char *volupcmd[] = { "sh", "-c", "pulsemixer --change-volume +10; pkill -35 "STATUSMANAGER, NULL };
+//static const char *micmutecmd[] = { "sh", "-c", "pulsemixer --id 1 --toggle-mute; pkill -36 "STATUSMANAGER, NULL };
+static const char *togglestatuscmd[] = { "pkill", "-USR2", ""STATUSMANAGER, NULL };
+
 static const char *togglestatuscmd[] = { "pkill", "-USR2", "dwmstatus", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
