@@ -22,6 +22,7 @@ pacman -S stalonetray alsa-utils nm-applet terminus-font xfce4-terminal firefox 
 cat > ~/.xinitrc << EOF
 (stalonetray) &
 (nm-applet) &
+#(blueman-applet) &
 dwmstatus &
 xset r rate 250 40 &
 setxkbmap br &
