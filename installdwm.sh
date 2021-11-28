@@ -13,7 +13,7 @@ cd dwmstatus
 sudo make install
 cd ..
 
-pacman -S stalonetray alsa-utils nm-applet terminus-font xfce4-terminal firefox pipewire pipewire-alsa pipewire-pulse pavucontrol
+pacman -S stalonetray alsa-utils nm-applet terminus-font xfce4-terminal firefox pipewire pipewire-alsa pipewire-pulse pavucontrol brightnessctl
 
 # if bluetooth
 #   pacman -S bluez blueman bluez-utils
