@@ -1,15 +1,18 @@
 #include <X11/XF86keysym.h>
-#define FONT "Hack"
-#define STATUSMANAGER "cppstatus"
+#define STATUSMANAGER "dwmstatus"
+#define FONT "terminus:size=14:style=Bold"
 /* See LICENSE file for copyright and license details. */
-
+//
+//
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { FONT":size=14:style=Bold" };
-static const char dmenufont[]       = FONT":size=14:style=Bold";
+static const char *fonts[]          = { FONT };
+//static const char *fonts[]          = { "fontawesome-regular:size=16:style=bold" };
+//static const char dmenufont[]       = "fontawesome-regular:size=16:style=bold";
+static const char dmenufont[]       = FONT;
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -33,6 +36,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "stalonetray",     NULL,       NULL,       1<<8,            0,           -1 },
 	{ "firefox",  NULL,       NULL,       0,       0,           -1 },
 	{ "discord",  NULL,       NULL,       1 << 7,       0,           -1 },
 };
@@ -64,27 +68,26 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_dark, NULL };
-static const char *termcmd[]  = { "xfce4-terminal", "--hide-menubar", "--hide-borders", "--hide-scrollbar", "--color-bg=#171717", NULL };
-//static const char *termcmd[]  = { "st", "-f", FONT":size=12", NULL };
+static const char *termcmd[]  = { "xfce4-terminal", "--hide-menubar", "--hide-borders", "--hide-scrollbar", "--color-bg=#171717", "--font=terminus", NULL };
 static const char *browsercmd[]  = { "firefox", NULL};
 /* Brightness control */
+//static const char *brupcmd[] = { "brightnessctl", "set", "10%+",";", "kill", "-n", "34","\"$(pidof dwmstatus)\"", NULL };
 //static const char *brupcmd[] = { "sh", "-c", "brightnessctl set 10%+; pkill -34 "STATUSMANAGER, NULL };
 //static const char *brdowncmd[] = { "sh", "-c", "brightnessctl set 10%-; pkill -34 "STATUSMANAGER, NULL };
 //static const char *voldowncmd[] = { "sh", "-c", "pulsemixer --change-volume -10; pkill -35 "STATUSMANAGER, NULL };
 //static const char *volupcmd[] = { "sh", "-c", "pulsemixer --change-volume +10; pkill -35 "STATUSMANAGER, NULL };
 //static const char *micmutecmd[] = { "sh", "-c", "pulsemixer --id 1 --toggle-mute; pkill -36 "STATUSMANAGER, NULL };
 static const char *togglestatuscmd[] = { "pkill", "-USR2", ""STATUSMANAGER, NULL };
-
-static const char *togglestatuscmd[] = { "pkill", "-USR2", "dwmstatus", NULL };
+//static const char *brdowncmd[] = { "brightnessctl", "set", "10%-", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,             XK_s,      spawn,          {.v = togglestatuscmd } },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = togglestatuscmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_q,      spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_w,	   spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	//{ 0, XF86XK_MonBrightnessUp,  spawn,          {.v = brupcmd} },
-    	//{ 0, XF86XK_MonBrightnessDown, spawn,          {.v = brdowncmd} },
+    //{ 0, XF86XK_MonBrightnessDown, spawn,          {.v = brdowncmd} },
 	//{ 0, XF86XK_AudioLowerVolume,  spawn,          {.v = voldowncmd} },
 	//{ 0, XF86XK_AudioRaiseVolume,  spawn,          {.v = volupcmd} },
 	//{ 0, XF86XK_AudioMute,  spawn,          {.v = micmutecmd} },
