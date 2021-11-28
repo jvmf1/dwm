@@ -13,7 +13,7 @@ cd dwmstatus
 sudo make install
 cd ..
 
-pacman -S stalonetray nm-applet terminus-font xfce4-terminal firefox
+pacman -S stalonetray alsa-utils nm-applet terminus-font xfce4-terminal firefox pipewire pipewire-alsa pipewire-pulse
 
 cat > ~/.xinitrc << EOF
 (stalonetray) &
