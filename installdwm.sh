@@ -13,7 +13,11 @@ cd dwmstatus
 sudo make install
 cd ..
 
-pacman -S stalonetray alsa-utils nm-applet terminus-font xfce4-terminal firefox pipewire pipewire-alsa pipewire-pulse
+pacman -S stalonetray alsa-utils nm-applet terminus-font xfce4-terminal firefox pipewire pipewire-alsa pipewire-pulse pavucontrol
+
+# if bluetooth
+#   pacman -S bluez blueman bluez-utils
+#   systemctl enable bluetooth.service
 
 cat > ~/.xinitrc << EOF
 (stalonetray) &
