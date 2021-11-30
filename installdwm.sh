@@ -1,3 +1,5 @@
+pacman -S stalonetray alsa-utils network-manager-applet terminus-font xfce4-terminal firefox pipewire pipewire-alsa pipewire-pulse pavucontrol gnome-disk-utility thunar thunar-volman mpv xorg-server xorg-xinit libx11
+
 git clone https://github.com/jvmf1/dwm
 cd dwm
 sudo make install
@@ -13,24 +15,15 @@ cd dwmstatus
 sudo make install
 cd ..
 
-pacman -S stalonetray alsa-utils nm-applet terminus-font xfce4-terminal firefox pipewire pipewire-alsa pipewire-pulse pavucontrol gnome-disk-utility thunar thunar-volman mpv
 
 # if bluetooth
 #   pacman -S bluez blueman bluez-utils
 #   systemctl enable bluetooth.service
 
-cat > ~/.xinitrc << EOF
-(stalonetray) &
+echo "(stalonetray) &
 (nm-applet) &
 #(blueman-applet) &
 dwmstatus &
 xset r rate 250 40 &
 setxkbmap br &
-exec dwm
-EOF
-
-cat > ~/.config/gtk-3.0/settings.ini << EOF
-[Settings]
-gtk-theme-name = Adwaita
-gtk-application-prefer-dark-theme = true
-EOF
+exec dwm" > $HOME/.xinitrc
