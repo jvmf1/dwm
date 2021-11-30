@@ -1,4 +1,4 @@
-pacman -S stalonetray alsa-utils network-manager-applet terminus-font xfce4-terminal firefox pipewire pipewire-alsa pipewire-pulse pavucontrol gnome-disk-utility thunar thunar-volman mpv xorg-server xorg-xinit libx11
+pacman -S stalonetray alsa-utils network-manager-applet terminus-font xfce4-terminal firefox pipewire pipewire-alsa pipewire-pulse pavucontrol gnome-disk-utility thunar thunar-volman mpv xorg-server xorg-xinit libx11 terminus-font neofetch htop
 
 git clone https://github.com/jvmf1/dwm
 cd dwm
