@@ -68,7 +68,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_dark, NULL };
-static const char *termcmd[]  = { "xfce4-terminal", "--hide-menubar", "--hide-borders", "--hide-scrollbar", "--color-bg=#171717", "--font=terminus", NULL };
+static const char *termcmd[]  = { "xfce4-terminal", "--hide-menubar", "--hide-borders", "--hide-scrollbar", "--color-bg=#171717", NULL };
 static const char *browsercmd[]  = { "firefox", NULL};
 
 static Key keys[] = {
@@ -77,8 +77,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_q,      spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_w,	   spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ 0, XF86XK_MonBrightnessUp,  spawn,          SHCMD("brightnessctl set 10%+") },
-    { 0, XF86XK_MonBrightnessDown, spawn,          SHCMD("brightnessctl set 10%-") },
+	{ 0, XF86XK_MonBrightnessUp,  spawn,          SHCMD("brightnessctl set 5%+") },
+    { 0, XF86XK_MonBrightnessDown, spawn,          SHCMD("brightnessctl set 5%-") },
 	{ 0, XF86XK_AudioLowerVolume,  spawn,          SHCMD("pulsemixer --change-volume -10") },
 	{ 0, XF86XK_AudioRaiseVolume,  spawn,          SHCMD("pulsemixer --change-volume +10") },
 	{ 0, XF86XK_AudioMute,  spawn,          SHCMD("pulsemixer --id 1 --toggle-mute") },
