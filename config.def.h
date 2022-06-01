@@ -63,7 +63,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_dark, NULL };
-static const char *browsercmd[]  = { "brave", NULL};
+static const char *browsercmd[]  = { "firefox", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -75,7 +75,7 @@ static Key keys[] = {
     { 0, XF86XK_MonBrightnessDown, spawn,          SHCMD("brightnessctl set 5%-") },
 	{ 0, XF86XK_AudioLowerVolume,  spawn,          SHCMD("pulsemixer --change-volume -10") },
 	{ 0, XF86XK_AudioRaiseVolume,  spawn,          SHCMD("pulsemixer --change-volume +10") },
-	{ 0, XF86XK_AudioMute,  spawn,          SHCMD("pulsemixer --id 1 --toggle-mute") },
+	{ 0, XF86XK_AudioMicMute,  spawn,          SHCMD("pulsemixer --id 1 --toggle-mute") },
 	{ MODKEY,                       XK_Up,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_Down,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = +1 } },
